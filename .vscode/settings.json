@@ -1,0 +1,8 @@
+  {
+  "editor.tabSize": 2,
+  "html.autoClosingTags": true,
+  "html.autoCreateQuotes": true,
+  "html.customData": [
+    ".html.erb"
+  ]
+}
