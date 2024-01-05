@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
 <body>
   <div class="container">
     <h1>Все посты</h1>
-    <% @post.each do |el| %> <hr>
-    <h3><%= el.title %></h3>
-    <p><%= el.body %></p><hr>
+    <% @post.each do |el| %>
+      <hr>
+      <div class="alert alert-light1">
+        <h3><%= el.title %></h3>
+        <p><%= el.body %></p>
+        <%= link_to "Читать далее", post_path(el), :class => 'btn btn-outline-primary' %>
+      </div>
     <% end %>
   </div>
 </body>
-
-</html>
