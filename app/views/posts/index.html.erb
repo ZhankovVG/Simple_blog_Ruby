@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
-  <h1>hello</h1>
+  <div class="container">
+    <h1>Все посты</h1>
+    <% @post.each do |el| %> <hr>
+    <h3><%= el.title %></h3>
+    <p><%= el.body %></p><hr>
+    <% end %>
+  </div>
 </body>
+
 </html>
