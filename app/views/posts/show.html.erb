@@ -1,8 +1,52 @@
 <body>
-  <h1>Все посты</h1> <br>
+  <style>
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+  </style>
+
+  
   <h3><%= @post.title %></h3> <br>
   <p><%= @post.body %></p>
-  <hr>
   <%= link_to 'Редактировать', edit_post_path(@post), :class => 'btn btn-warning' %>
   <%= link_to 'Удалить', post_path(@post), method: :delete, :class => 'btn btn-danger' %>
+  <hr>
+<br><br>
+  <div class="container">
+    <h2>Все коментария</h2>
+    <% @post.comments.each do |comment| %>
+      <hr>
+      <div class="alert alert-light1">
+        <h3><strong><%= comment.username %></strong></h3>
+        <p><%= comment.body %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <hr>
+
+  <div class="container form-container">
+    <h1>Добавление коментария</h1>
+    <%= form_for ([@post, @post.comments.build]) do |f| %>
+    <div class="form-group">
+      <%= f.label :username, "Пользователь" %><br>
+      <%= f.text_field :username, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :body, "Текст комментария" %><br>
+      <%= f.text_area :body, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit 'Создать Коментарий', class: 'btn btn-success' %>
+    </div>
+    <% end %>
+  </div>
+
 </body>
