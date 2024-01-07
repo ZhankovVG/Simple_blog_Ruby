@@ -31,11 +31,11 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-
+    @post.comments.destroy_all
     @post.destroy
-    redirect_to posts_url
-  end
 
+    redirect_to posts_path
+  end
 
   def create
     @post = Post.new(post_params)
